@@ -1,0 +1,28 @@
+Command line:
+   P_layer_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  39591
+
+Wed Dec  7 10:17:00 2022
+
+
+ Elaboration Time: 0.07 sec
+
+ Current Memory Usage: 185.86 Meg
+
+ Total Signals          : 2
+ Total Nets             : 128
+ Total Signal Drivers   : 64
+ Total Blocks           : 2
+ Total Primitive Blocks : 2
+ Total Processes        : 64
+ Total Traceable Variables  : 8
+ Total Scalar Nets and Variables : 488
+
+ Total Simulation Time: 0.09 sec
+
+ Current Memory Usage: 261.362 Meg
+
+Wed Dec  7 10:31:34 2022
+

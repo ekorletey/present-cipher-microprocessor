@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/reg64.xst" -ofn "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/reg64.syr" 

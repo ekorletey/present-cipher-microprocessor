@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/DataPath_isim_beh.exe" -prj "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/DataPath_beh.prj" "work.DataPath" 

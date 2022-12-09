@@ -1,0 +1,6 @@
+vhdl work "S_box.vhd"
+vhdl work "straight_through.vhd"
+vhdl work "reg64.vhd"
+vhdl work "P_layer.vhd"
+vhdl work "MUX.vhd"
+vhdl work "DataPath.vhd"

@@ -1,0 +1,4 @@
+xst -intstyle ise -ifn "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/straight_through.xst" -ofn "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/straight_through.syr" 
+xst -intstyle ise -ifn "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/straight_through.xst" -ofn "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/straight_through.syr" 
+xst -intstyle ise -ifn "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/straight_through.xst" -ofn "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/straight_through.syr" 
+xst -intstyle ise -ifn "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/straight_through.xst" -ofn "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/straight_through.syr" 
