@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    04:11:13 12/09/2022 
+-- Create Date:    23:40:39 11/27/2022 
 -- Design Name: 
--- Module Name:    key_register - Behavioral 
+-- Module Name:    reg64 - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,18 +29,21 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity key_register is
-port(
-			D: IN STD_LOGIC_VECTOR(79 downto 0);
-			Q: OUT STD_LOGIC_VECTOR(79 downto 0);
+entity reg64 is
+
+	port(
+			D: IN STD_LOGIC_VECTOR(63 downto 0);
+			Q: OUT STD_LOGIC_VECTOR(63 downto 0);
 			CLK,CLR,LOAD: IN STD_LOGIC
 	);
-end key_register;
-
-architecture Behavioral of key_register is
+end reg64;
 
 
-	signal temp: STD_LOGIC_VECTOR(79 downto 0);
+--ARCHITECTURE---------------------------------------
+
+architecture Behavioral of reg64 is
+
+	signal temp: STD_LOGIC_VECTOR(63 downto 0);
 
 begin
 	reg64 : process(CLK,CLR,LOAD,temp)
@@ -56,7 +59,6 @@ begin
 				end if;
 				Q <= temp;
 				end process;
-
 
 end Behavioral;
 

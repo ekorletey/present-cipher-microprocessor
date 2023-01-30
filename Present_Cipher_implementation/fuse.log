@@ -1,30 +1,49 @@
-Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -o /home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/DataPath_isim_beh.exe -prj /home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/DataPath_beh.prj work.DataPath 
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -o /home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/encrypter_isim_beh.exe -prj /home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/encrypter_beh.prj work.encrypter 
 ISim P.20131013 (signature 0xfbc00daa)
 Number of CPUs detected in this system: 2
 Turning on mult-threading, number of parallel sub-compilation jobs: 4 
 Determining compilation order of HDL files
 Parsing VHDL file "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/S_box.vhd" into library work
 Parsing VHDL file "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/straight_through.vhd" into library work
+Parsing VHDL file "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/sBox.vhd" into library work
 Parsing VHDL file "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/reg64.vhd" into library work
 Parsing VHDL file "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/P_layer.vhd" into library work
+Parsing VHDL file "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/MUX_key.vhd" into library work
 Parsing VHDL file "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/MUX.vhd" into library work
+Parsing VHDL file "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/key_register.vhd" into library work
+Parsing VHDL file "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/key_scheduler.vhd" into library work
 Parsing VHDL file "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/DataPath.vhd" into library work
+Parsing VHDL file "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/TopLevel.vhd" into library work
+Parsing VHDL file "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/presentcipher_controlUnit.vhd" into library work
+Parsing VHDL file "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/counter.vhd" into library work
+Parsing VHDL file "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/encrypter.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 83536 KB
-Fuse CPU Usage: 1020 ms
+Fuse Memory Usage: 86660 KB
+Fuse CPU Usage: 3080 ms
 Compiling package standard
 Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
 Compiling architecture behavioral of entity MUX [mux_default]
 Compiling architecture behavioral of entity reg64 [reg64_default]
 Compiling architecture behavioral of entity straight_through [straight_through_default]
 Compiling architecture behavioral of entity S_box [s_box_default]
 Compiling architecture behavioral of entity P_layer [p_layer_default]
-Compiling architecture behavioral of entity datapath
+Compiling architecture behavioral of entity DataPath [datapath_default]
+Compiling architecture behavioral of entity MUX_key [mux_key_default]
+Compiling architecture behavioral of entity key_register [key_register_default]
+Compiling architecture behavioral of entity sBox [sbox_default]
+Compiling architecture behavioral of entity key_scheduler [key_scheduler_default]
+Compiling architecture behavioral of entity TopLevel [toplevel_default]
+Compiling architecture behavioral of entity cipher_fsm [cipher_fsm_default]
+Compiling architecture behavioral of entity COUNT [count_default]
+Compiling architecture behavioral of entity encrypter
 Time Resolution for simulation is 1ps.
-Waiting for 3 sub-compilation(s) to finish...
-Compiled 13 VHDL Units
-Built simulation executable /home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/DataPath_isim_beh.exe
-Fuse Memory Usage: 387164 KB
-Fuse CPU Usage: 1070 ms
-GCC CPU Usage: 880 ms
+Waiting for 11 sub-compilation(s) to finish...
+Compiled 32 VHDL Units
+Built simulation executable /home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/encrypter_isim_beh.exe
+Fuse Memory Usage: 400784 KB
+Fuse CPU Usage: 3510 ms
+GCC CPU Usage: 3960 ms

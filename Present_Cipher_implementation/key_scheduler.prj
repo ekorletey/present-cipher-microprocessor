@@ -1,0 +1,4 @@
+vhdl work "sBox.vhd"
+vhdl work "MUX_key.vhd"
+vhdl work "key_register.vhd"
+vhdl work "key_scheduler.vhd"

@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    04:11:13 12/09/2022 
+-- Create Date:    16:29:43 12/07/2022 
 -- Design Name: 
--- Module Name:    key_register - Behavioral 
+-- Module Name:    straight_through - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,34 +29,25 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity key_register is
-port(
-			D: IN STD_LOGIC_VECTOR(79 downto 0);
-			Q: OUT STD_LOGIC_VECTOR(79 downto 0);
-			CLK,CLR,LOAD: IN STD_LOGIC
-	);
-end key_register;
+entity straight_through is 
 
-architecture Behavioral of key_register is
+	port(
+		input: in std_logic_vector(63 downto 0);
+		output: out std_logic_vector(63 downto 0);
+		clock: in std_logic
+		);
+	
+end straight_through;
 
-
-	signal temp: STD_LOGIC_VECTOR(79 downto 0);
+architecture Behavioral of straight_through is
 
 begin
-	reg64 : process(CLK,CLR,LOAD,temp)
-	begin 
-		if(RISING_EDGE(CLK)) then
-			if(CLR = '1') then
-				temp <= (others => '0');
-				
-				elsif(LOAD = '1') then 
-					temp <= D;
-					end if;
-					
-				end if;
-				Q <= temp;
-				end process;
-
-
+straightProcess: process(clock) is
+							begin
+							if(RISING_EDGE(clock)) then
+							output <= input;
+							end if;
+							
+					  end process;
 end Behavioral;
 

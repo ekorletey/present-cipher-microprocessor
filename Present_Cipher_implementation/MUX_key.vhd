@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    04:11:13 12/09/2022 
+-- Create Date:    22:15:42 12/08/2022 
 -- Design Name: 
--- Module Name:    key_register - Behavioral 
+-- Module Name:    MUX_key - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,34 +29,20 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity key_register is
-port(
-			D: IN STD_LOGIC_VECTOR(79 downto 0);
-			Q: OUT STD_LOGIC_VECTOR(79 downto 0);
-			CLK,CLR,LOAD: IN STD_LOGIC
+entity MUX_key is
+	port(
+	input_0, input_1: IN STD_LOGIC_VECTOR(79 downto 0);
+	output: OUT STD_LOGIC_VECTOR(79 downto 0);
+	sel: IN STD_LOGIC
 	);
-end key_register;
 
-architecture Behavioral of key_register is
+end MUX_key;
 
-
-	signal temp: STD_LOGIC_VECTOR(79 downto 0);
+architecture Behavioral of MUX_key is
 
 begin
-	reg64 : process(CLK,CLR,LOAD,temp)
-	begin 
-		if(RISING_EDGE(CLK)) then
-			if(CLR = '1') then
-				temp <= (others => '0');
-				
-				elsif(LOAD = '1') then 
-					temp <= D;
-					end if;
-					
-				end if;
-				Q <= temp;
-				end process;
-
+	with sel select OUTPUT <= input_0 when '0',
+		input_1 when '1',
+		(others => 'Z') when others;
 
 end Behavioral;
-

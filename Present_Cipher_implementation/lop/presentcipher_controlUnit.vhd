@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    04:11:13 12/09/2022 
+-- Create Date:    03:22:17 12/09/2022 
 -- Design Name: 
--- Module Name:    key_register - Behavioral 
+-- Module Name:    presentcipher_controlUnit - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,34 +29,25 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity key_register is
-port(
-			D: IN STD_LOGIC_VECTOR(79 downto 0);
-			Q: OUT STD_LOGIC_VECTOR(79 downto 0);
-			CLK,CLR,LOAD: IN STD_LOGIC
+entity cipher_fsm is
+	port(
+		clock: in std_logic;
+		keysel: out std_logic;
+		keyload: out std_logic;
+		plainsel out std_logic
 	);
-end key_register;
+end cipher_fsm;
 
-architecture Behavioral of key_register is
+architecture Behavioral of cipher_fsm is
 
-
-	signal temp: STD_LOGIC_VECTOR(79 downto 0);
-
+	signal count: std_logic(4 downto 0);
+	type state_type is (ST0, ST1, ST2, ST3);
+	signal PS, NS : state_type;
 begin
-	reg64 : process(CLK,CLR,LOAD,temp)
-	begin 
-		if(RISING_EDGE(CLK)) then
-			if(CLR = '1') then
-				temp <= (others => '0');
-				
-				elsif(LOAD = '1') then 
-					temp <= D;
-					end if;
-					
-				end if;
-				Q <= temp;
-				end process;
-
-
+	sync_proc: process(clock, NS)
+	begin
+		
+	
+	
 end Behavioral;
 

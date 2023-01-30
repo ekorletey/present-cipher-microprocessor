@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    04:11:13 12/09/2022 
+-- Create Date:    10:02:51 12/10/2022 
 -- Design Name: 
--- Module Name:    key_register - Behavioral 
+-- Module Name:    tri_state - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,33 +29,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity key_register is
-port(
-			D: IN STD_LOGIC_VECTOR(79 downto 0);
-			Q: OUT STD_LOGIC_VECTOR(79 downto 0);
-			CLK,CLR,LOAD: IN STD_LOGIC
-	);
-end key_register;
+entity tri_state is
+end tri_state;
 
-architecture Behavioral of key_register is
-
-
-	signal temp: STD_LOGIC_VECTOR(79 downto 0);
+architecture Behavioral of tri_state is
 
 begin
-	reg64 : process(CLK,CLR,LOAD,temp)
-	begin 
-		if(RISING_EDGE(CLK)) then
-			if(CLR = '1') then
-				temp <= (others => '0');
-				
-				elsif(LOAD = '1') then 
-					temp <= D;
-					end if;
-					
-				end if;
-				Q <= temp;
-				end process;
 
 
 end Behavioral;

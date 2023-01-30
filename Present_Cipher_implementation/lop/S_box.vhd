@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    03:52:46 12/09/2022 
+-- Create Date:    01:49:37 11/28/2022 
 -- Design Name: 
--- Module Name:    sBox - Behavioral 
+-- Module Name:    S_box - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,17 +29,20 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity sBox is
-port(
+entity S_box is
+
+	port(
 		input: IN STD_LOGIC_VECTOR(3 downto 0);
 		output: OUT STD_LOGIC_VECTOR( 3 downto 0)
 	);
-end sBox;
 
-architecture Behavioral of sBox is
+
+end S_box;
+
+architecture Behavioral of S_box is
 
 begin
-with input select output <= "1100" when "0000", 
+	with input select output <= "1100" when "0000", 
 										 "0101" when "0001", 
 										 "0110" when "0010", 
 										 "1011" when "0011",

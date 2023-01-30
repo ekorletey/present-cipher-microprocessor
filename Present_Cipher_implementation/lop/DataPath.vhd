@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity DataPath is
 	port(
 	plaintext, key: IN STD_LOGIC_VECTOR(63 downto 0);
-	sel, CLK, clearplain, loadplain: IN STD_LOGIC;
+	sel, CLK, clearplain, loadplain, loadkey, clearkey: IN STD_LOGIC;
 	cipher : OUT STD_LOGIC_VECTOR(63 downto 0)
 	
 	);
@@ -83,7 +83,7 @@ architecture Behavioral of DataPath is
 	
 	
 	---------------------siganl cables--------------
-	signal  datatmp, D_out, xor_tmp, Pout: STD_LOGIC_VECTOR(63 downto 0);
+	signal ciphertmp, datatmp, D_out, keytmp, xor_tmp, xor_out, s_boxout, Pout: STD_LOGIC_VECTOR(63 downto 0);
 	signal S_boxtmp15, S_boxtmp14, S_boxtmp13, S_boxtmp12, S_boxtmp11, S_boxtmp10, S_boxtmp9, S_boxtmp8, S_boxtmp7, S_boxtmp6, S_boxtmp5, S_boxtmp4, S_boxtmp3, S_boxtmp2, S_boxtmp1, S_boxtmp0: STD_LOGIC_VECTOR( 3 downto 0);
 	signal sub_out15, sub_out14, sub_out13, sub_out12, sub_out11, sub_out10, sub_out9, sub_out8, sub_out7, sub_out6, sub_out5, sub_out4, sub_out3, sub_out2, sub_out1, sub_out0: STD_LOGIC_VECTOR(3 downto 0);
 	signal s_box64: STD_LOGIC_VECTOR(63 downto 0);
@@ -92,7 +92,7 @@ begin
 
 			---------mux-------------
 	muxconnect : MUX port map(
-		input_0 =>  Pout,
+		input_0 => ciphertmp,
 		input_1 => plaintext,
 		output => datatmp,
 		sel => sel
@@ -236,6 +236,6 @@ begin
 		output => Pout
 	);
 	
-	cipher <= D_out;
+	cipher <= Pout;
 end Behavioral;
 

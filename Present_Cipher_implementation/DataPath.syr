@@ -4,15 +4,15 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: DataPath.prj
@@ -201,10 +201,6 @@ Unit <P_layer> synthesized.
 
 Synthesizing Unit <DataPath>.
     Related source file is "/home/ekorletey/Processor/cipher_processor/Present_Cipher_implementation/DataPath.vhd".
-WARNING:Xst:1780 - Signal <xor_out> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <s_boxout> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <plaintmp> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <ciphertmp> is used but never assigned. This sourceless signal will be automatically connected to value 0000000000000000000000000000000000000000000000000000000000000000.
     Found 64-bit xor2 for signal <xor_tmp>.
 Unit <DataPath> synthesized.
 
@@ -215,8 +211,8 @@ HDL Synthesis Report
 Macro Statistics
 # ROMs                                                 : 16
  16x4-bit ROM                                          : 16
-# Registers                                            : 3
- 64-bit register                                       : 3
+# Registers                                            : 2
+ 64-bit register                                       : 2
 # Xors                                                 : 1
  64-bit xor2                                           : 1
 
@@ -233,8 +229,8 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # ROMs                                                 : 16
  16x4-bit ROM                                          : 16
-# Registers                                            : 192
- Flip-Flops                                            : 192
+# Registers                                            : 128
+ Flip-Flops                                            : 128
 # Xors                                                 : 1
  64-bit xor2                                           : 1
 
@@ -260,8 +256,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 192
- Flip-Flops                                            : 192
+# Registers                                            : 128
+ Flip-Flops                                            : 128
 
 =========================================================================
 
@@ -287,19 +283,20 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 198
+# IOs                              : 196
 
 Cell Usage :
 # BELS                             : 192
-#      LUT2                        : 128
+#      LUT2                        : 64
+#      LUT3                        : 64
 #      LUT4                        : 64
-# FlipFlops/Latches                : 192
+# FlipFlops/Latches                : 128
 #      FD                          : 64
-#      FDRE                        : 128
+#      FDRE                        : 64
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 197
-#      IBUF                        : 133
+# IO Buffers                       : 195
+#      IBUF                        : 131
 #      OBUF                        : 64
 =========================================================================
 
@@ -308,11 +305,11 @@ Device utilization summary:
 
 Selected Device : 3s200pq208-5 
 
- Number of Slices:                      110  out of   1920     5%  
- Number of Slice Flip Flops:            192  out of   3840     5%  
+ Number of Slices:                      101  out of   1920     5%  
+ Number of Slice Flip Flops:            128  out of   3840     3%  
  Number of 4 input LUTs:                192  out of   3840     5%  
- Number of IOs:                         198
- Number of bonded IOBs:                 198  out of    141   140% (*) 
+ Number of IOs:                         196
+ Number of bonded IOBs:                 196  out of    141   139% (*) 
  Number of GCLKs:                         1  out of      8    12%  
 
 WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
@@ -338,7 +335,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-CLK                                | BUFGP                  | 192   |
+CLK                                | BUFGP                  | 128   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -349,9 +346,9 @@ Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 2.257ns (Maximum Frequency: 443.095MHz)
+   Minimum period: 3.639ns (Maximum Frequency: 274.808MHz)
    Minimum input arrival time before clock: 3.396ns
-   Maximum output required time after clock: 7.769ns
+   Maximum output required time after clock: 7.834ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -360,29 +357,30 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
-  Clock period: 2.257ns (frequency: 443.095MHz)
-  Total number of paths / destination ports: 128 / 64
+  Clock period: 3.639ns (frequency: 274.808MHz)
+  Total number of paths / destination ports: 320 / 128
 -------------------------------------------------------------------------
-Delay:               2.257ns (Levels of Logic = 1)
-  Source:            keyinput/temp_63 (FF)
-  Destination:       passer_by/output_63 (FF)
+Delay:               3.639ns (Levels of Logic = 2)
+  Source:            passer_by/output_61 (FF)
+  Destination:       datainput/temp_63 (FF)
   Source Clock:      CLK rising
   Destination Clock: CLK rising
 
-  Data Path: keyinput/temp_63 to passer_by/output_63
+  Data Path: passer_by/output_61 to datainput/temp_63
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             1   0.626   0.976  keyinput/temp_63 (keyinput/temp_63)
-     LUT2:I0->O            1   0.479   0.000  Mxor_xor_tmp_Result<63>1 (xor_tmp<63>)
-     FD:D                      0.176          passer_by/output_63
+     FD:C->Q               4   0.626   1.074  passer_by/output_61 (passer_by/output_61)
+     LUT4:I0->O            2   0.479   0.804  substitution0/Mrom_output31 (sub_out15<3>)
+     LUT3:I2->O            1   0.479   0.000  muxconnect/output<63>1 (datatmp<63>)
+     FDRE:D                    0.176          datainput/temp_63
     ----------------------------------------
-    Total                      2.257ns (1.281ns logic, 0.976ns route)
-                                       (56.8% logic, 43.2% route)
+    Total                      3.639ns (1.760ns logic, 1.879ns route)
+                                       (48.4% logic, 51.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
-  Total number of paths / destination ports: 448 / 384
+  Total number of paths / destination ports: 320 / 256
 -------------------------------------------------------------------------
 Offset:              3.396ns (Levels of Logic = 2)
   Source:            sel (PAD)
@@ -394,7 +392,7 @@ Offset:              3.396ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O            64   0.715   2.026  sel_IBUF (sel_IBUF)
-     LUT2:I0->O            1   0.479   0.000  muxconnect/output<9>1 (datatmp<9>)
+     LUT3:I0->O            1   0.479   0.000  muxconnect/output<9>1 (datatmp<9>)
      FDRE:D                    0.176          datainput/temp_9
     ----------------------------------------
     Total                      3.396ns (1.370ns logic, 2.026ns route)
@@ -404,34 +402,34 @@ Offset:              3.396ns (Levels of Logic = 2)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
   Total number of paths / destination ports: 256 / 64
 -------------------------------------------------------------------------
-Offset:              7.769ns (Levels of Logic = 2)
-  Source:            passer_by/output_63 (FF)
+Offset:              7.834ns (Levels of Logic = 2)
+  Source:            passer_by/output_61 (FF)
   Destination:       cipher<63> (PAD)
   Source Clock:      CLK rising
 
-  Data Path: passer_by/output_63 to cipher<63>
+  Data Path: passer_by/output_61 to cipher<63>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               4   0.626   1.074  passer_by/output_63 (passer_by/output_63)
-     LUT4:I0->O            1   0.479   0.681  substitution0/Mrom_output31 (sub_out15<3>)
+     FD:C->Q               4   0.626   1.074  passer_by/output_61 (passer_by/output_61)
+     LUT4:I0->O            2   0.479   0.745  substitution0/Mrom_output31 (sub_out15<3>)
      OBUF:I->O                 4.909          cipher_63_OBUF (cipher<63>)
     ----------------------------------------
-    Total                      7.769ns (6.014ns logic, 1.755ns route)
-                                       (77.4% logic, 22.6% route)
+    Total                      7.834ns (6.014ns logic, 1.820ns route)
+                                       (76.8% logic, 23.2% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.55 secs
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 2.82 secs
  
 --> 
 
 
-Total memory usage is 508140 kilobytes
+Total memory usage is 510768 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    5 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 
